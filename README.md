@@ -33,7 +33,6 @@ dotfiles/
 
 Managed configuration files/folders original paths:
 - Neovim config (`~/.config/nvim`)
-- keyd keyboard remapping (`/etc/keyd/default.conf`)
 
 Repository files:
 - README.md

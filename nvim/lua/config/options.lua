@@ -1,6 +1,8 @@
 -- Reduce delay after Esc
 vim.opt.ttimeout = true
 vim.opt.ttimeoutlen = 0
+vim.opt.termguicolors = true
+vim.opt.updatetime = 50
 
 -- General
 vim.opt.compatible = false
