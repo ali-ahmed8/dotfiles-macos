@@ -8,3 +8,5 @@ map("n", "<leader>r", ":w<CR>:!g++ % -o %< && ./%<<CR>")
 
 -- Clear search highlight
 map("n", "<leader>h", ":nohlsearch<CR>")
+
+map("t", "<Esc>", [[<C-\><C-n>]])
