@@ -11,27 +11,6 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 
--- It work but without background cursos focus in matlab term
--- vim.api.nvim_create_autocmd("FileType", {
---   pattern = "matlab",
---   callback = function()
---     vim.keymap.set("n", "<leader>c", function()
---       vim.cmd("w")
---
---       if not vim.g.matlab_job_id then
---         print("MATLAB not ready. Open MATLAB tab first.")
---         return
---       end
---
---       local file = vim.fn.expand("%:p")
---       vim.fn.chansend(
---         vim.g.matlab_job_id,
---         "run('" .. file .. "')\n"
---       )
---     end, { buffer = true })
---   end,
--- })
-
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "matlab",
   callback = function()
@@ -56,7 +35,7 @@ vim.api.nvim_create_autocmd("FileType", {
       for _, win in ipairs(vim.api.nvim_list_wins()) do
         local buf = vim.api.nvim_win_get_buf(win)
         local buf_name = vim.api.nvim_buf_get_name(buf)
-        
+
         -- Check if this window is displaying the MATLAB terminal
         if buf_name:match("matlab") or vim.bo[buf].buftype == "terminal" then
           -- Get the total number of lines in that terminal buffer

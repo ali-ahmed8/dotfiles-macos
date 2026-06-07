@@ -20,7 +20,7 @@ vim.api.nvim_create_user_command("MatlabMode", function()
 
   -- Create a background timer to poll the buffer text (works flawlessly on hidden tabs)
   local timer = vim.uv.new_timer()
-  
+
   timer:start(200, 500, vim.schedule_wrap(function()
     -- Ensure the buffer still exists to prevent crashes if closed early
     if not vim.api.nvim_buf_is_valid(mat_buf) then
@@ -31,7 +31,7 @@ vim.api.nvim_create_user_command("MatlabMode", function()
 
     -- Get all lines currently in the terminal buffer
     local lines = vim.api.nvim_buf_get_lines(mat_buf, 0, -1, false)
-    
+
     for _, line in ipairs(lines) do
       -- Check if MATLAB's prompt ">> " has appeared anywhere in the stream
       if line:match(">> ") then
